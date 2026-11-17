@@ -1,0 +1,13 @@
+version: 1
+frontend:
+  phases:
+    build:
+      commands:
+        # Inject the backend URL as a JS global so app.js can pick it up
+        - echo "window.API_BASE = '${BACKEND_URL}/api';" > config.js
+  artifacts:
+    baseDirectory: .
+    files:
+      - '**/*'
+  cache:
+    paths: []
